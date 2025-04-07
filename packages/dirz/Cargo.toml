@@ -1,0 +1,10 @@
+[package]
+name = "dirz"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dirz-lib = { path = "../dirz-lib" }
+anyhow = "1"
+thiserror = "1"
+clap = { version = "3", features = ["derive"] }

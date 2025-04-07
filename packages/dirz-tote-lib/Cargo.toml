@@ -1,0 +1,9 @@
+[package]
+name = "dirz-tote-lib"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+toml = "0.5.9"
+serde = { version = "1.0", features = ["derive"] }
+error-chain = "0.12.4"

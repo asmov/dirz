@@ -1,0 +1,6 @@
+name = "accounting"
+label = "Accounting Department"
+
+folders = [
+    "sources"
+]

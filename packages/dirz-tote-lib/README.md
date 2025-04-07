@@ -1,11 +1,11 @@
-DirZ
+DirZ Tote Library
 ================================================================================
 [![Latest Version]][crates.io]
 
-[Latest Version]: https://img.shields.io/crates/v/dirz.svg
-[crates.io]: https://crates.io/crates/dirz
+[Latest Version]: https://img.shields.io/crates/v/dirz-tote-lib.svg
+[crates.io]: https://crates.io/crates/dirz-tote-lib
 
-*Customizable algorithmic document filing system*
+*Library for DirZ Tote*
 
 
 Repository
@@ -19,7 +19,7 @@ If an issue does not exist, create one and tell us how to reproduce the bug.
 
 License (AGPL3)
 --------------------------------------------------------------------------------
-DirZ: Customizable algorithmic document filing system  
+DirZ Tote Library: Library for DirZ Tote  
 Copyright (C) 2025 [Asmov LLC](https://asmov.software)  
 
 This program is free software: you can redistribute it and/or modify

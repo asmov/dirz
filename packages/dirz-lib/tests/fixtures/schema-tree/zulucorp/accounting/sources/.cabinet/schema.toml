@@ -1,0 +1,6 @@
+name = "sources"
+label = "Source Documents"
+
+sharded_folders = [
+    "transactions"
+]

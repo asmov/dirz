@@ -1,0 +1,6 @@
+name = "zulucorp"
+label = "Zulu Corporation"
+
+folders = [
+    "accounting"
+]

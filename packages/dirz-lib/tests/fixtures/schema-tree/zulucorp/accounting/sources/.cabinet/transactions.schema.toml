@@ -1,0 +1,51 @@
+#:schema: asmov/cabinet/directory
+#:version: 0.1.0
+
+name = "transactions"
+label = "Transactions"
+
+[record]
+name = "TXN"
+label_singular = "Transaction"
+label_plural = "Transactions"
+id_type = "short_year_quarter_index"
+shard_type = "year_quarter"
+structure = "directory"
+format = "${ident}$ ${order}$ ${party}$ ${date}$ ${account}$ ${summary}$"
+
+file_extensions = [
+    "pdf",
+    "png"
+]
+
+[record.field.ident]
+name = "ident"
+type = "ident"
+ident.schema = "%{this}%"
+
+[record.field.order]
+name = "order"
+type = "ident"
+ident.schema = "PO"
+
+[record.field.party]
+name = "party"
+type = "string"
+string.preset = "none"
+
+[record.field.date]
+name = "date"
+type = "date"
+date.preset = "YMD"
+
+[record.field.account]
+name = "account"
+type = "token"
+token.schema = "ACCOUNT"
+token.field = "token"
+
+[record.field.summary]
+name = "summary"
+type = "string"
+string.preset = "summary"
+

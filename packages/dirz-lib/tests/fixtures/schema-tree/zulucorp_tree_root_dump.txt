@@ -1,0 +1,182 @@
+Path(
+    FolderNode {
+        name: "zulucorp",
+        dir_path: "",
+        schema_filepath: ".cabinet/schema.toml",
+        schema: CabinetPath {
+            name: "zulucorp",
+            label: "Zulu Corporation",
+            shard_type: None,
+            folders: [
+                "accounting",
+            ],
+            sharded_folders: [],
+            record_schema: None,
+        },
+        antecedents: [],
+        children: {
+            "accounting": Path(
+                FolderNode {
+                    name: "accounting",
+                    dir_path: "accounting",
+                    schema_filepath: "accounting/.cabinet/schema.toml",
+                    schema: CabinetPath {
+                        name: "accounting",
+                        label: "Accounting Department",
+                        shard_type: None,
+                        folders: [
+                            "sources",
+                        ],
+                        sharded_folders: [],
+                        record_schema: None,
+                    },
+                    antecedents: [
+                        "zulucorp",
+                    ],
+                    children: {
+                        "sources": Path(
+                            FolderNode {
+                                name: "sources",
+                                dir_path: "accounting/sources",
+                                schema_filepath: "accounting/sources/.cabinet/schema.toml",
+                                schema: CabinetPath {
+                                    name: "sources",
+                                    label: "Source Documents",
+                                    shard_type: None,
+                                    folders: [],
+                                    sharded_folders: [
+                                        "transactions",
+                                    ],
+                                    record_schema: None,
+                                },
+                                antecedents: [
+                                    "zulucorp",
+                                    "accounting",
+                                ],
+                                children: {
+                                    "transactions": ShardedPath(
+                                        ShardedFolderNode {
+                                            name: "transactions",
+                                            schema_filepath: "accounting/sources/.cabinet/transactions/.schema.toml",
+                                            schema: CabinetPath {
+                                                name: "transactions",
+                                                label: "Transactions",
+                                                shard_type: None,
+                                                folders: [],
+                                                sharded_folders: [],
+                                                record_schema: Some(
+                                                    Record {
+                                                        name: "TXN",
+                                                        label_singular: "Transaction",
+                                                        label_plural: "Transactions",
+                                                        shard_type: YearQuarter,
+                                                        id_type: ShortYearQuarterIndex,
+                                                        structure: Directory,
+                                                        format: "${ident}$ ${order}$ ${party}$ ${date}$ ${account}$ ${summary}$",
+                                                        file_extensions: [
+                                                            "pdf",
+                                                            "png",
+                                                        ],
+                                                        fields: {
+                                                            "account": FieldSchema {
+                                                                name: "account",
+                                                                field_type: Token,
+                                                                string_attributes: None,
+                                                                ident_attributes: None,
+                                                                date_attributes: None,
+                                                                token_attributes: Some(
+                                                                    TokenField {
+                                                                        optional: false,
+                                                                        schema: "ACCOUNT",
+                                                                        field: "token",
+                                                                    },
+                                                                ),
+                                                            },
+                                                            "date": FieldSchema {
+                                                                name: "date",
+                                                                field_type: Date,
+                                                                string_attributes: None,
+                                                                ident_attributes: None,
+                                                                date_attributes: Some(
+                                                                    DateField {
+                                                                        optional: false,
+                                                                        preset: YMD,
+                                                                    },
+                                                                ),
+                                                                token_attributes: None,
+                                                            },
+                                                            "ident": FieldSchema {
+                                                                name: "ident",
+                                                                field_type: Ident,
+                                                                string_attributes: None,
+                                                                ident_attributes: Some(
+                                                                    IdentField {
+                                                                        optional: false,
+                                                                        schema: "%{this}%",
+                                                                    },
+                                                                ),
+                                                                date_attributes: None,
+                                                                token_attributes: None,
+                                                            },
+                                                            "order": FieldSchema {
+                                                                name: "order",
+                                                                field_type: Ident,
+                                                                string_attributes: None,
+                                                                ident_attributes: Some(
+                                                                    IdentField {
+                                                                        optional: false,
+                                                                        schema: "PO",
+                                                                    },
+                                                                ),
+                                                                date_attributes: None,
+                                                                token_attributes: None,
+                                                            },
+                                                            "party": FieldSchema {
+                                                                name: "party",
+                                                                field_type: String,
+                                                                string_attributes: Some(
+                                                                    StringField {
+                                                                        optional: false,
+                                                                        length: 0,
+                                                                        preset: None,
+                                                                    },
+                                                                ),
+                                                                ident_attributes: None,
+                                                                date_attributes: None,
+                                                                token_attributes: None,
+                                                            },
+                                                            "summary": FieldSchema {
+                                                                name: "summary",
+                                                                field_type: String,
+                                                                string_attributes: Some(
+                                                                    StringField {
+                                                                        optional: false,
+                                                                        length: 0,
+                                                                        preset: Summary,
+                                                                    },
+                                                                ),
+                                                                ident_attributes: None,
+                                                                date_attributes: None,
+                                                                token_attributes: None,
+                                                            },
+                                                        },
+                                                    },
+                                                ),
+                                            },
+                                            antecedents: [
+                                                "zulucorp",
+                                                "accounting",
+                                                "sources",
+                                            ],
+                                            children: {},
+                                        },
+                                    ),
+                                },
+                            },
+                        ),
+                    },
+                },
+            ),
+        },
+    },
+)
